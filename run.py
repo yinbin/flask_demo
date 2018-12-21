@@ -1,6 +1,8 @@
 #coding:utf8
 
 from flask import Flask
+
+from app.admin.admin_module import admin_aa
 from app.login_demo.login_demo import login    # 从分路由倒入路由函数
 from app.register_demo.register_demo import register
 
@@ -9,6 +11,8 @@ app = Flask(__name__)
 # 注册蓝图 第一个参数 是蓝图对象
 app.register_blueprint(login)
 app.register_blueprint(register)
+app.register_blueprint(admin_aa)
+
 
 @app.route('/')
 def hello_world():
@@ -16,5 +20,5 @@ def hello_world():
 
 
 if __name__ == '__main__':
-    print( app.url_map )
-    app.run(port=8080)
+    # print( app.url_map )
+    app.run(port=8090)
