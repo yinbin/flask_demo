@@ -1,18 +1,7 @@
 #coding:utf8
 
-from flask import Flask
-
-from app.admin.admin_module import admin_aa
-from app.login_demo.login_demo import login    # 从分路由倒入路由函数
-from app.register_demo.register_demo import register
-
-app = Flask(__name__)
-
-# 注册蓝图 第一个参数 是蓝图对象
-app.register_blueprint(login)
-app.register_blueprint(register)
-app.register_blueprint(admin_aa)
-
+from app.db.database import app
+from app.webapp.router import router
 
 @app.route('/')
 def hello_world():
